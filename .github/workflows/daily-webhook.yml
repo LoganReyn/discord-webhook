@@ -1,1 +1,15 @@
+name: Daily Discord Webhook
 
+on:
+  schedule:
+    - cron: '0 18 * * *' # Runs every day at 6 PM UTC
+
+jobs:
+  send_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Webhook
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content": "🍽️ Whats for dinner? 🍕🍔🥗"}' \
+          "YOUR_DISCORD_WEBHOOK_URL"

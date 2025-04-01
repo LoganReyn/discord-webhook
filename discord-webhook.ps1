@@ -34,11 +34,12 @@ function Format-Message {
     )
 
     try {
+        $TodayDate = Get-Date -Format "dddd, MMMM d, yyyy"
         # String Extraction
         $Location = "$($VerseData.book) $($VerseData.chapter):$($VerseData.verse)"
         $Text = $VerseData.text
         
-        $Message = "**Out of the hat came this one . . .** `n`n`n$($Text)_~$($Location)~_ `n`n`n Does this surprise you? `n"
+        $Message = "**[Verse on $TodayDate]** `n`n`n$($Text)_~$($Location)~_ `n`n``n"
 
         $Content = @{
             content = $Message

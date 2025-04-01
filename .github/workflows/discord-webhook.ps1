@@ -4,7 +4,7 @@
 
 ###### URL'S ###################
 $DISCORD_WEBHOOK = "$env:DISCORD_WEBHOOK"
-$BIBLEVERSEAPI   = "https://bible-api.com/data/web/random"
+$BIBLEVERSEAPI   = "$env:BIBLE_VERSE_API"
 ###########################
 function Get-RandomVerse {
 

@@ -39,7 +39,7 @@ function Format-Message {
         $Location = "$($VerseData.book) $($VerseData.chapter):$($VerseData.verse)"
         $Text = $VerseData.text
         
-        $Message = "**[Verse on $TodayDate]** `n`n`n$($Text)_~$($Location)~_ `n`n``n"
+        $Message = "**[Verse on $TodayDate]** `n`n`n$($Text)_~$($Location)~_ `n`n`*S-V.1.0.5*`n"
 
         $Content = @{
             content = $Message

@@ -3,7 +3,7 @@
 # 
 
 ###### URL'S ###################
-$DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1350904669521842236/KW0RJA3FxFJBcFqaruy2eOaNOPUIDbu-AxBTFBC9bRtSkjyjx5W9Kmfpr2NZSqWzeO9R"
+$DISCORD_WEBHOOK = "$env:DISCORD_WEBHOOK"
 $BIBLEVERSEAPI   = "https://bible-api.com/data/web/random"
 ###########################
 function Get-RandomVerse {

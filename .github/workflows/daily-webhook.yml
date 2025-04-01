@@ -2,14 +2,21 @@ name: Daily Discord Webhook
 
 on:
   schedule:
-    - cron: '0 18 * * *' # Runs every day at 6 PM UTC
+    - cron: "0 23 * * *"  # Runs every day at 11 PM UTC (7 PM EST)
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  send_webhook:
+  send-discord-webhook:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Send Webhook
-        run: |
-          curl -X POST -H "Content-Type: application/json" \
-          -d '{"content": "🍽️ Whats for dinner? 🍕🍔🥗"}' \
-          "YOUR_DISCORD_WEBHOOK_URL"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install PowerShell
+        run: sudo apt-get update && sudo apt-get install -y powershell
+
+      - name: Run PowerShell Script
+        run: pwsh ./discord-webhook.ps1
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}

@@ -7,16 +7,15 @@ on:
 
 jobs:
   send-discord-webhook:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Uses a Windows environment
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install PowerShell
-        run: sudo apt-get update && sudo apt-get install -y powershell
-
       - name: Run PowerShell Script
-        run: pwsh ./discord-webhook.ps1
+        shell: pwsh
+        run: .\discord-webhook.ps1
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          BIBLE_VERSE_API: "https://bible-api.com/data/web/random"
